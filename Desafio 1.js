@@ -16,7 +16,7 @@ const totalPassos = parseInt(gets());
 //TODO: Calcule a posição final do herói:
 function calcularPassos(){
     let posicaoFinal = posicaoInicial + totalPassos;
-    print("Posicao final do heroi:", posicaoFinal);
+    print("Posicao final do heroi:" + posicaoFinal);
 }
 
 calcularPassos(posicaoInicial, totalPassos);
