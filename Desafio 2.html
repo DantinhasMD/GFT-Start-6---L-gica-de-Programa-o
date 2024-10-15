@@ -1,0 +1,127 @@
+<!-- Desafio Classificador de Nível do Herói
+
+Crie uma variável para armazenar o nome e a quantidade de XP de um herói, depois
+utilize uma estrutura de decisão para apresentar aLguma das mensagens abaixo: 
+
+Se XP for menor do que 1000 = Ferro
+Se XP for entre 1001 e 2000 = Bronze
+Se XP for entre 2001 e 3000 = Prata
+Se XP for entre 3001 e 4000 - Ouro
+Se XP for entre 4001 e 6000 = Diamante
+Se XP for entre 6001 e 8000 = Platina
+Se XP for entre 8001 e 9000 = Ascendente
+Se XP for entre 9001 e 10.000 = Imortal
+Se XP for maior ou igual 10.001 = Radiante
+
+Saída - "O Herói de nome **{nome}** está no nível de ***{nivel}*" */ -->
+<!DOCTYPE html>
+<html lang="pt=BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nível do Herói</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #escudo {
+            width: 100px;
+            height: 120px;
+            margin: 20px auto;
+            border: 5px solid black;
+            border-radius: 20% 20% 40% 40%;
+            transition: background-color 0.3s ease;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        input {
+            padding: 10px;
+            font-size: 1em;
+        }
+        .ferro {
+            background-color: gray;
+        }
+        .bronze {
+            background-color: #cd7f32;
+        }
+        .prata {
+            background-color: silver;
+        }
+        .ouro {
+            background-color: gold;
+        }
+        .diamante {
+            background-color: lightblue;
+        }
+        .platina {
+            background-color: #e5e4e2;
+        }
+        .ascendente {
+            background-color: purple;
+        }
+        .imortal {
+            background-color: crimson;
+        }
+        .radiante {
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <h1>Classificador do Nível do Herói</h1>
+    <hr>
+
+    <p>Nome do jogador:
+    <input type="text" id="nome"></p>
+
+    <p>Nível do Jogaodor:
+    <input type="number" id="numero"></p>
+
+    <input type="button" value="Classificar Nível" onclick="classificarNivel()">
+
+    <h3 id="resposta"></h3>
+
+    <div id="escudo"></div>
+
+    <script>
+        const niveis = [ //Objetos dentro da array - Possibilidades 
+            {limite: 1000, nome: "Ferro"},
+            {limite: 2000, nome: "Bronze"},
+            {limite: 3000, nome: "Prata"},
+            {limite: 4000, nome: "Ouro"},
+            {limite: 6000, nome: "Diamante"},
+            {limite: 8000, nome: "Platina"},
+            {limite: 9000, nome: "Ascendente"},
+            {limite: 10000, nome: "Imortal"},
+            {limite: Infinity, nome: "Radiante"}
+        ]
+
+    function obterNivel(numero) { //apenas quero manipular o número
+        return niveis.find(nivel => numero <= nivel.limite).nome;
+    }
+    
+    function classificarNivel(){ //aqui estou interagingo com o DOM
+        const nome = document.getElementById("nome").value;
+        const numero = parseInt(document.getElementById("numero").value);
+        const resposta = document.getElementById("resposta");
+        const escudo = document.getElementById("escudo");
+        
+        escudo.className = "";
+
+        if (isNaN(numero) || nome.trim() === "") { //trim - remove os espaços vazios
+            resposta.innerHTML = "Por favor, insira um nome válido e um número.";
+        } else {
+            const nivel = obterNivel(numero);
+            resposta.innerHTML = `O Herói ${nome} está no nível ${nivel}.`;
+            escudo.classList.add(nivel.toLowerCase());
+        }
+    }
+    </script>
+</body>
+</html>
+
+
