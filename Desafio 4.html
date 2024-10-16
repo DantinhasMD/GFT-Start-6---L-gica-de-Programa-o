@@ -1,0 +1,116 @@
+<!--Calculadora de Partidas Rankeadas
+Crie uma função que recebe como parâmetro a quantidade de vitórias e 
+derrotas de um jogador, depois retorne o resultado para uma variável, 
+o saldo de Rankeadas deve ser feito através do cálculo (vitórias - derrotas):
+
+Se vitórias for menor ou igual a 10 = Ferro;
+Se vitórias for entre 11 e 20 = Bronze;
+Se vitórias for entre 21 e 50 = Prata;
+Se vitórias for entre 51 e 80 = Ouro;
+Se vitórias for entre 81 e 90 = Diamante;
+Se vitórias for entre 91 e 100 = Lendário;
+Se vitórias for maior ou igual a 101 = Imortal;
+
+Saída - " O herói tem de saldo **{saldoVitorias}** está no nível **{nível}**"-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Partidas Rankeadas</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #escudo {
+            width: 100px;
+            height: 120px;
+            margin: 20px auto;
+            border: 5px solid black;
+            border-radius: 20% 20% 40% 40%;
+            transition: background-color 0.3s ease;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        input {
+            padding: 10px;
+            font-size: 1em;
+        }
+        .ferro {
+            background-color: gray;
+        }
+        .bronze {
+            background-color: #cd7f32;
+        }
+        .prata {
+            background-color: silver;
+        }
+        .ouro {
+            background-color: gold;
+        }
+        .diamante {
+            background-color: lightblue;
+        }
+        .lendário{
+            background-color: #e5e4e2;
+        }
+        .imortal {
+            background-color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Partidas Rankeadas</h1>
+    <hr>
+
+    <p>Quantidade de Vitórias:
+    <input type="number" id="vitorias"></p>
+
+    <p>Quantidade de Derrotas:
+    <input type="number" id="derrotas"></p>
+
+    <input type="button" value="Calcular" onclick="classificarNivel()">
+
+    <h3 id="resultado"></h3>
+    <div id="escudo"></div>
+
+<script>
+    const niveis = [
+        {limite: 10, nome: "Ferro"},
+        {limite: 20, nome: "Bronze"},
+        {limite: 50, nome: "Prata"},
+        {limite: 80, nome: "Ouro"},
+        {limite: 90, nome: "Diamante"},
+        {limite: 100, nome: "Lendário"},
+        {limite: Infinity, nome: "Imortal"}
+    ];
+
+    function obterNivel(vitorias, derrotas) { 
+        let numero = vitorias - derrotas;
+        return niveis.find(nivel => numero <= nivel.limite).nome;
+    }
+    
+    function classificarNivel(){ 
+        const vitorias = parseInt(document.getElementById("vitorias").value);
+        const derrotas = parseInt(document.getElementById("derrotas").value);
+        const resultado = document.getElementById("resultado");
+        const escudo = document.getElementById("escudo");
+        
+        escudo.className = "";
+
+        if (isNaN(vitorias) || isNaN(derrotas)){
+            resultado.innerHTML = "Por favor, insira valores válidos para vitórias e derrotas.";
+        } else {
+            const nivel = obterNivel(vitorias, derrotas);
+            resultado.innerHTML = `O Herói está no nível ${nivel}.`;
+            escudo.classList.add(nivel.toLowerCase());
+        }
+    }
+</script>
+
+</body>
+</html>
