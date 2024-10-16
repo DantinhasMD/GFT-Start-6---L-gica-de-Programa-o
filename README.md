@@ -53,3 +53,24 @@ a ajustar a recompensa de XP com base na intensidade da batalha.
 
 100: Este é o multiplicador constante que determina a escala geral de recompensa de XP. Multiplicar 
 pelo nível do monstro e pela dificuldade aumenta a recompensa em 100 vezes o valor do nível e da dificuldade. alor numérico(int).
+
+# Desafio 4
+Calculadora de Partidas Rankeadas
+Crie uma função que recebe como parâmetro a quantidade de vitórias e derrotas de um jogador, depois retorne o resultado para uma variável, o saldo de Rankeadas deve ser feito através do cálculo (vitórias - derrotas):
+
+Se vitórias for menor ou igual a 10 = Ferro;
+Se vitórias for entre 11 e 20 = Bronze;
+Se vitórias for entre 21 e 50 = Prata;
+Se vitórias for entre 51 e 80 = Ouro;
+Se vitórias for entre 81 e 90 = Diamante;
+Se vitórias for entre 91 e 100 = Lendário;
+Se vitórias for maior ou igual a 101 = Imortal;
+
+Saída - " O herói tem de saldo **{saldoVitorias}** está no nível **{nível}**
+
+# Desafio 5
+Descrição - No mundo dos jogos Pokémon, os treinadores começam sua jornada escolhendo um dos três Pokémons iniciais: Bulbasaur, Charmander e Mewtwo. Cada treinador escolhe um dos quatro pokemons. Seu desafio é criar uma solução que permita ao jogador escolher um dos Pokémons iniciais e exibir uma mensagem de boas-vindas e o Pokémon escolhido.
+
+Entrada - Você receberá um número inteiro que representa a escolha do treinador: 1 para Bulbasaur, 2 para Charmander, 4 Pikachu e 5 para Mewtwo.
+
+Saída - A saída deve ser uma mensagem de boas-vindas que inclua o nome do Pokémon escolhido.
