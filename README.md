@@ -4,6 +4,15 @@ Aqui temos as minhas resoluções para os Desafios Propostos
 ![Certificado](https://github.com/user-attachments/assets/2371657e-8b08-4bf2-9edd-b7613887f8f2)
 
 
+## Sobre o Bootcamp
+🎈Neste curso de 47h foram Trabalhados conceitos básicos com JavaScript. 🎈
+Alguns dos Tópicos Trabalhados são:
+- Vetores e Matrizes;
+- Operadores;
+- Estruturas de Controle;
+- Funções;
+- Classes e Objetos. 
+
 # Desafio 1 
 Descrição - Você é um jovem herói que embarca em uma jornada épica para derrotar o temido dragão que aterroriza o reino. 
 No entanto, você precisa atravessar uma floresta perigosa para chegar à caverna do dragão. Cada passo é crucial, e sua jornada 
